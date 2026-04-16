@@ -1,12 +1,12 @@
 {
   "name": "moodle-mcp",
   "version": "0.1.0",
-  "description": "MCP server for Moodle — access your courses, files, and grades from Claude Desktop",
+  "description": "MCP server for Moodle — give Claude access to your courses, files, grades, and more. Build Obsidian study vaults from lecture notes in one command.",
   "type": "module",
   "bin": {
     "moodle-mcp": "./dist/server.js"
   },
-  "files": ["dist"],
+  "files": ["dist", "README.md", "LICENSE"],
   "scripts": {
     "build": "tsc",
     "dev": "npx @modelcontextprotocol/inspector node dist/server.js",
@@ -27,5 +27,13 @@
     "node": ">=18.0.0"
   },
   "license": "MIT",
-  "keywords": ["moodle", "mcp", "claude", "education", "lms"]
+  "keywords": ["moodle", "mcp", "claude", "education", "lms", "obsidian", "study"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1alexandrer/moodle-mcp.git"
+  },
+  "homepage": "https://github.com/1alexandrer/moodle-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/1alexandrer/moodle-mcp/issues"
+  }
 }
