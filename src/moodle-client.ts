@@ -5,6 +5,8 @@ export interface SiteInfo {
   username: string;
   sitename: string;
   fullname: string;
+  release: string;
+  functions?: { name: string; version: string }[];
 }
 
 type MoodleErrorResponse = {
@@ -15,11 +17,21 @@ type MoodleErrorResponse = {
 
 export class MoodleClient {
   userId: number = 0;
+  siteName: string = "";
+  release: string = "";
+  supportedFunctions: Set<string> = new Set();
 
   private constructor(
     private readonly baseUrl: string,
     private readonly token: string,
   ) {}
+
+  /** Returns true if the WS function is available on this Moodle server. */
+  supports(wsfunction: string): boolean {
+    // If the server didn't return a functions list, assume everything is supported.
+    if (this.supportedFunctions.size === 0) return true;
+    return this.supportedFunctions.has(wsfunction);
+  }
 
   static async create(config: Config): Promise<MoodleClient> {
     const token =
@@ -28,6 +40,9 @@ export class MoodleClient {
     const client = new MoodleClient(config.baseUrl, token);
     const info = await client.call<SiteInfo>("core_webservice_get_site_info");
     client.userId = info.userid;
+    client.siteName = info.sitename;
+    client.release = info.release ?? "";
+    client.supportedFunctions = new Set(info.functions?.map((f) => f.name) ?? []);
     return client;
   }
 
@@ -35,7 +50,17 @@ export class MoodleClient {
     const url = `${baseUrl}/login/token.php`;
     const body = new URLSearchParams({ username, password, service: "moodle_mobile_app" });
     const res = await fetch(url, { method: "POST", body });
-    const data = (await res.json()) as { token?: string; error?: string };
+    const text = await res.text();
+    let data: { token?: string; error?: string };
+    try {
+      data = JSON.parse(text);
+    } catch {
+      throw new Error(
+        "Moodle login returned an unexpected response — your school likely uses SSO (Microsoft/Google/CAS). " +
+        "Use a token instead: log in via browser, then visit " +
+        `${baseUrl}/login/token.php?service=moodle_mobile_app and set MOODLE_TOKEN.`
+      );
+    }
     if (data.error) {
       throw new Error(
         `Moodle login failed: ${data.error}. Check your username, password, and Moodle URL.`
