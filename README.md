@@ -414,7 +414,7 @@ Both tools read the same Markdown vault — you can use both.
 
 ### Knowledge Graph preview
 
-![Obsidian knowledge graph of a university course](docs/assets/graph-preview.png)
+![Obsidian knowledge graph of a university course](docs/assets/introduction_video.mp4)
 *Your entire course as a linked knowledge graph — built in one command. Run `/build-study-notes` once to generate this.*
 
 ### Query the graph with Claude
