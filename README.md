@@ -312,7 +312,8 @@ OpenAI has announced MCP support for ChatGPT. Check the [OpenAI blog](https://op
 3. Find the **Moodle mobile web service** token and copy it
 4. Set `MOODLE_TOKEN=<token>` in your MCP config
 
-### Option B — Get the token from https://moodle.yourschool.edu/login/token.php?username=<YOURUSERNAME>&password=<YOURPASSWORD>&service=moodle_mobile_app
+### Option B — Get the token from 
+`https://moodle.yourschool.edu/login/token.php?username=<YOURUSERNAME>&password=<YOURPASSWORD>&service=moodle_mobile_app`
 ### Option C — Username + password (not SSO schools)
 
 If your school uses a regular username/password (not Microsoft/Google/SSO), you can skip the token step entirely:
