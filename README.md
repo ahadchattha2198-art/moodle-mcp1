@@ -1,6 +1,16 @@
 # moodle-mcp
 
+[![npm version](https://img.shields.io/npm/v/moodle-mcp?color=cb3837&logo=npm&logoColor=white)](https://www.npmjs.com/package/moodle-mcp)
+[![npm downloads](https://img.shields.io/npm/dm/moodle-mcp?color=cb3837&logo=npm&logoColor=white)](https://www.npmjs.com/package/moodle-mcp)
+[![GitHub stars](https://img.shields.io/github/stars/1alexandrer/moodle-mcp?style=social)](https://github.com/1alexandrer/moodle-mcp)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.5-3178c6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Node](https://img.shields.io/badge/Node-18%2B-339933?logo=node.js&logoColor=white)](https://nodejs.org)
+[![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-F38020?logo=cloudflare&logoColor=white)](https://workers.cloudflare.com)
+[![MIT License](https://img.shields.io/badge/license-MIT-lightgrey)](LICENSE)
+
 > Give Claude full access to your Moodle — courses, files, assignments, grades, quizzes, calendar, and more. Build Obsidian study vaults from your lecture notes in one command.
+
+> 📦 **[moodle-mcp on npm](https://www.npmjs.com/package/moodle-mcp)** — `npx moodle-mcp`
 
 **13 tools · 5 prompts · MCP Resources**
 
@@ -402,6 +412,11 @@ Claude will:
 
 Both tools read the same Markdown vault — you can use both.
 
+### Knowledge Graph preview
+
+![Obsidian knowledge graph of a university course](docs/assets/graph-preview.png)
+*Your entire course as a linked knowledge graph — built in one command. Run `/build-study-notes` once to generate this.*
+
 ### Query the graph with Claude
 
 Once the vault exists on disk, you can ask Claude Code or Claude Desktop questions like:
@@ -443,6 +458,12 @@ Some tools require your Moodle admin to enable specific web services. Run `moodl
 | `moodle_get_notifications` | Admin may need to enable | `message_popup` service |
 
 If a tool isn't available, it returns a helpful message explaining what your admin needs to enable — it won't crash the server.
+
+---
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=1alexandrer/moodle-mcp&type=Date)](https://star-history.com/#1alexandrer/moodle-mcp)
 
 ---
 
