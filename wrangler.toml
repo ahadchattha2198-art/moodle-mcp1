@@ -1,0 +1,7 @@
+name = "moodle-mcp"
+main = "src/worker.ts"
+compatibility_date = "2024-11-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Set secrets via: wrangler secret put MOODLE_URL
+# Do NOT hardcode credentials here — set them in the CF dashboard or with wrangler secret put
