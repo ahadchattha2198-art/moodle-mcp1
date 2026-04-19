@@ -1,3 +1,7 @@
+
+
+
+
 # moodle-mcp
 
 [![npm version](https://img.shields.io/npm/v/moodle-mcp?color=cb3837&logo=npm&logoColor=white)](https://www.npmjs.com/package/moodle-mcp)
@@ -13,7 +17,8 @@
 > 📦 **[moodle-mcp on npm](https://www.npmjs.com/package/moodle-mcp)** — `npx moodle-mcp`
 
 **13 tools · 5 prompts · MCP Resources**
-[![Video Title](https://youtu.be/LPBercPB73Q)
+
+https://github.com/user-attachments/assets/db87f719-d75c-411a-ad77-ceffec8d3b7c
 ---
 
 ## Install
@@ -414,7 +419,7 @@ Both tools read the same Markdown vault — you can use both.
 
 ### Knowledge Graph preview
 
-![Obsidian knowledge graph of a university course](docs/assets/introduction_video.mp4)
+![Obsidian knowledge graph of a university course](https://github.com/user-attachments/assets/db87f719-d75c-411a-ad77-ceffec8d3b7c)
 *Your entire course as a linked knowledge graph — built in one command. Run `/build-study-notes` once to generate this.*
 
 ### Query the graph with Claude
