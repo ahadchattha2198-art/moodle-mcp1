@@ -423,7 +423,7 @@ Both tools read the same Markdown vault — you can use both.
 
 ### Knowledge Graph preview
 
-![Obsidian knowledge graph of a university course]
+
 <img width="1565" height="947" alt="image" src="https://github.com/user-attachments/assets/382cf5ed-4806-4d3a-bfdc-6e4eeb15c3ec" />
 *Your entire course as a linked knowledge graph — built in one command. Run `/build-study-notes` once to generate this.*
 
