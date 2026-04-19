@@ -3,21 +3,13 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { getConfig } from "./config.js";
 import { MoodleClient } from "./moodle-client.js";
-import { registerCourseTools } from "./tools/courses.js";
-import { registerFileTools } from "./tools/files.js";
-import { registerAssignmentTools } from "./tools/assignments.js";
-import { registerGradeTools } from "./tools/grades.js";
-import { registerCalendarTools } from "./tools/calendar.js";
-import { registerQuizTools } from "./tools/quizzes.js";
-import { registerForumTools } from "./tools/forums.js";
-import { registerNotificationTools } from "./tools/notifications.js";
-import { registerSiteInfoTool } from "./tools/siteinfo.js";
+import { registerAllTools } from "./register-tools.js";
 import { registerResources } from "./resources/index.js";
 import { registerPrompts } from "./prompts/index.js";
 
 if (process.stdin.isTTY && !process.env.MOODLE_URL) {
   console.log(`
-moodle-mcp v0.1.0 — Moodle MCP Server
+moodle-mcp v0.1.1 — Moodle MCP Server
 
 This tool runs as a background server for Claude — you don't run it directly.
 Add it to your Claude config and restart Claude.
@@ -41,7 +33,7 @@ Paste this into the JSON:
 
 ━━━ Claude Code (CLI) ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Run once in your project folder:
-  claude mcp add moodle npx moodle-mcp \\
+  claude mcp add moodle npx -- -y moodle-mcp \\
     -e MOODLE_URL=https://moodle.yourschool.edu \\
     -e MOODLE_TOKEN=your_token_here
 
@@ -64,18 +56,10 @@ async function main() {
 
   const server = new McpServer({
     name: "moodle-mcp",
-    version: "0.1.0",
+    version: "0.1.1",
   });
 
-  registerCourseTools(server, client);
-  registerFileTools(server, client);
-  registerAssignmentTools(server, client);
-  registerGradeTools(server, client);
-  registerCalendarTools(server, client);
-  registerQuizTools(server, client);
-  registerForumTools(server, client);
-  registerNotificationTools(server, client);
-  registerSiteInfoTool(server, client);
+  registerAllTools(server, client);
   registerResources(server, client);
   registerPrompts(server);
 
